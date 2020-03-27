@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>:::동서식품:::</title>	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/slick.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<style>
+		.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background:#f00;
+}
+	</style>
+				
+	<script>
+		$(function(){
+			$('.slider').slick({
+			  dots: false,
+				  autoplay:false,
+					speed: 300,
+				  slidesToShow: 2,
+				  slidesToScroll: 2,
+				  arrows:true,
+				  nextArrow: $(".next_btn"),
+				  prevArrow: $(".prev_btn"),
+				  responsive: [
+				    {
+				      breakpoint: 1920,
+				      settings: {
+				        slidesToShow: 2,
+				        slidesToScroll: 2,
+				        infinite: true,
+				        dots: false
+				      }
+				    },
+				    {
+				      breakpoint: 959,
+				      settings: {
+				        slidesToShow: 2,
+				        slidesToScroll: 2
+				      }
+				    },
+				    {
+				      breakpoint: 699,
+				      settings: {
+				        slidesToShow: 1,
+				        slidesToScroll: 1
+				      }
+				    },
+					  ]
+			});
+			//마우스크롤로 페이지 넘기는 기능
+			var contents = $(".contents");
+			var current = 0;
+			var sEvent = false;
+			var ct;
+			// var ss=$(".contents").offset().top;
+			// console.log("top:",ss);
+			$(window).on("mousewheel",function(event,delta){
+				//console.log(delta);
+				//event.preventDefault();
+				
+				if(delta < 0 && sEvent ==false){
+					
+					sEvent = true;
+					current++;
+					if(current>3){current=3}
+					console.log("now:"+current);
+					
+					ct = contents.eq(current).offset().top;
+					$("html").stop().animate({scrollTop:ct},{duration:500,complete:function(){sEvent = false}});
+					
+				}
+				if(delta>0  && sEvent ==false){
+					sEvent = true;
+					current--;
+					if(current<0){current=0}
+					console.log("now:"+current);
+
+					ct = contents.eq(current).offset().top;
+
+					$("html").stop().animate({scrollTop:ct},{duration:500,complete:function(){sEvent = false}});
+					
+
+				}
+			});
+
+			$("html,body").animate({scrollTop:0});
+		
+	});
+
+	</script>
+</head>
+<body>
+	<div class="warp ">
+		<!-- header -->
+		<header id="header" class="contents">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light bg-white">
+				<a class="navbar-brand" href="#">
+					<img style="width: 90px;"src="img/logo.png" alt="">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto" >
+		    		<li class="nav-item dropdown">
+		        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">회사소개</a>
+				      <div class="dropdown-menu">
+				        <a class="dropdown-item" href="#">동서식품</a>
+				        <a class="dropdown-item" href="#">식품안전센터</a>
+				      </div>
+		      	</li>
+		      	<li class="nav-item dropdown">
+		        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">제품안내</a>
+				      <div class="dropdown-menu">
+				        <a class="dropdown-item" href="#">포스트</a>
+				        <a class="dropdown-item" href="#">브랜드</a>
+				      </div>
+		      	</li>
+		      	<li class="nav-item dropdown">
+		        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">홍보센터</a>
+				      <div class="dropdown-menu">
+				        <a class="dropdown-item" href="#">공지사항</a>
+				        <a class="dropdown-item" href="#">이벤트</a>
+				      </div>
+		      	</li>
+		      	<li class="nav-item dropdown">
+		        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">고객문의</a>
+		      	</li>
+				  </ul>
+				 <form class="form-inline my-2 my-lg-0">
+				    	<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+				    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+				    	Search
+				    	</button>
+				  </form>		   
+				</div>
+				</nav>
+			</div>
+		</header>
+		<aside class="area_sns d-none d-lg-block">
+			<ul>
+				<li><a href="https://www.facebook.com/" data-sns="face"></a></li>
+				<li><a href="https://www.facebook.com/" data-sns="insta"></a></li>
+				<li><a href="https://blog.naver.com/zikimi29" data-sns="blog"></a></li>
+				<li><a href="https://www.youtube.com/channel/UC_Xwt7jqHTlEPj6IEDkgnaw?view_as=subscriber" data-sns="youtube"></a></li>
+			</ul>
+			<span class="scroll">
+				<span>scroll</span>
+				<i></i>
+			</span>
+		</aside>
+		<div class="jumbotron jumbotron-fluid bg-light visual contents">
+			<div class="video d-none d-md-block py-0">
+				<video id="myVideo" autoplay data-autoplay muted loop>
+					<source src="img/video.mp4">
+				</video>
+			</div>
+			<div class="colorbox text-white">
+				<div class="row">
+					<div class="vtxt col-12 pl-5">
+						<i class="wordAniBig">건강한 생산,</i>
+						<span class="wordAni">아침밥을 짓는 </span>
+						<span class="wordAni">엄마의 마음으로</span>
+					</div>
+				</div>
+				<div class="imgp01">
+					<img src="img/p01.png" alt="" class="w-100">
+				</div>				
+				<button class="imgbtn">더보기</button>
+			</div>
+		</div>		
+		<div class="content container h_390 contents">
+			<div class="notice row">			
+				<div class="col-3" style="background-color: #FFD5D0">
+					<em>Notice</em>
+					<h2>동서소식</h2>
+					<p>동서식품의 이슈와<br>정보를 안내해드립니다.</p>
+					<button type="button" class="btn btn-outline-danger">MORE</button>
+				</div>
+				<div class="col-9 ">
+					<div class="notice row">						
+						<div class="col-md-6 col-lg-4 bg-light">
+							<div class="card">
+								<div class="card-body text-left">
+									<a href="#"><h5>동서식품, '맥심 싱글오리진 에티오피아 예가체프 코체레' 한정판 출시</h5></a>
+									<p class="card-text d-none d-md-block text-secondary">대한민국 대표 커피전문기업 동서식품(대표 이광복)은 늘어나는 홈카페족을 겨냥한 로스팅 원두제품인 '맥심 싱글 오리진 에티오피아 예가체프 코체레'를 출시한다고 밝혔다.이번 신제품은 GS25 편의점에서만 판매되는 한정판 제품이다.</p>
+									<i>2020-03-24</i>
+								</div>					
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4 bg-light">
+							<div class="card">
+								<div class="card-body list text-left">
+									<a href="#"><h5>동서식품, 한정판 ‘맥심X무민 스페셜 패키지’ 출시</h5></a>
+									<p class="card-text d-none d-md-block text-secondary">대한민국 대표 커피전문기업 동서식품(대표 이광복)은 글로벌 유명 캐릭터인 무민(Moomin)과 함께한 '맥심X무민 스페셜 패키지'를 한정 판매한다고 12일 밝혔다. 맥심X무민 스페셜 패키지는 ‘카카오프렌즈’, ‘키티버니포니’에 이은 맥심 커피믹스의 세 번째 브랜드 콜라보레이션이다.</p>
+									<i>2020-03-13</i>
+								</div>					
+							</div>
+						</div>
+						<div class="d-md-none d-lg-block col-lg-4 bg-light">
+							<div class="card">
+								<div class="card-body list text-left">
+									<a href="#"><h5>동서식품, ‘오레오 씬즈 라즈베리 무스’ 출시</h5></a>
+									<p class="card-text d-none d-lg-block text-secondary">동서식품(대표 이광복)은 다가오는 봄을 맞아 라즈베리의 상큼한 풍미를 담은 디저트 쿠키인 ‘오레오 씬즈 라즈베리 무스’를 출시한다고 9일 밝혔다. ‘오레오 씬즈’는 얇고 바삭한 쿠키와 케이크를 연상시키는 맛의 크림이 어우러져 커피와 함께 가볍게 즐기기 좋은 디저트 쿠키이다.</p>
+									<i>2020-03-09</i>
+								</div>					
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>		
+		<div class="area_middle hauto container">
+			<div class="notice row">			
+				<div class="col-3">
+					<em>Event</em>
+					<h2>행사일정</h2>
+					<p>동서식품의 다양한 행사에<br>많은 관심 바랍니다.</p>
+					<button type="button" class="btn btn-outline-danger">MORE</button>
+				</div>				
+				<div class="col-9 " style="position:relative;">
+					<div class="sliderWrap">
+						<div class="slider" >
+							<div><img src="img/banner01.jpg" alt="img01" class="w-100"></div>
+							<div><img src="img/banner02.jpg" alt="img02" class="w-100"></div>
+							<div><img src="img/banner03.jpg" alt="img03" class="w-100"></div>
+							<div><img src="img/banner01.jpg" alt="img01" class="w-100"></div>
+							<div><img src="img/banner02.jpg" alt="img02" class="w-100"></div>
+							<div><img src="img/banner03.jpg" alt="img03" class="w-100"></div>
+						</div>					
+							<div class="prev_btn"></div>
+							<div class="next_btn"></div>					
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+	<div class="footer contents" style="background-color: #313340">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-white pt-3 pb-3">
+					<div id="footer">
+						<ul>
+							<li><a href="#" class="text-light">개인정보처리방침</a></li>
+							<li><a href="#" class="text-light">이용약관</a></li>
+							<li><a href="#" class="text-light">이메일무단수집거부</a></li>
+							<li><a href="#" class="text-light">홈페이지불편신고</a></li>
+							<li><a href="#" class="text-light">사이트맵</a></li>
+							<li><a href="#" class="text-light">관리자</a></li>
+						</ul>
+						<address class="mt-3">
+							<span class="mr-3">우)99999 서울시 구로구 구로동 구구빌딩 9층</span>
+							<span class="mr-3">이메일 : sooppi_tv@sooppi.com</span>
+							<span>대표번호 : <a href="tel:123456777" class="text-light">123-456-777</a></span>
+						</address>
+						<p>COPYRIGHT 2019. BY SOOPPITV. ALL RIGHTS RESERVED. Design by SOOPPI.</p>			
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#header" class="btn_top text-light d-none d-md-block">TOP</a>
+	</div>
+</body>
+</html>

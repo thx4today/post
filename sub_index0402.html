@@ -13,8 +13,23 @@
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/slick.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>	
+	<script>
+		$(function(){
+			$(document).mousewheel(function(event,delta){
+				if(delta<0){
+					console.log("delta :",delta)
+					$(".btn_top").addClass("view");
+				}else{
+					$(".btn_top").removeClass("view");					
+				}
+			});
 
+			$(".btn_top").click(function(){
+				$("html,body").animate({scrollTop:0},300);
+			});
+		});
+	</script>
 </head>
 <body>
 	<div class="warp">
@@ -110,7 +125,7 @@
 		<div class="subWrap container">
 			<h2 style="font-size: 34px;" class="mb-5 text-center">고객문의</h2>
 			<div class="sub_content">
-				<img src="img/company.jpg" alt="">
+				<img src="img/qna.png" alt="">
 			</div>
 		</div>
 		<!-- //본문 -->
@@ -133,13 +148,13 @@
 								<span class="mr-3">이메일 : sooppi_tv@sooppi.com</span>
 								<span>대표번호 : <a href="tel:123456777" class="text-light">123-456-777</a></span>
 							</address>
-							<p>COPYRIGHT 2019. BY SOOPPITV. ALL RIGHTS RESERVED. Design by SOOPPI.</p>			
-							<a href="#header" class="btn_top text-light d-none d-md-block">TOP</a>
+							<p>COPYRIGHT 2019. BY SOOPPITV. ALL RIGHTS RESERVED. Design by SOOPPI.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
+	<div class="btn_top">top</div>
 </body>
 </html>

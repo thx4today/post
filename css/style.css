@@ -145,12 +145,13 @@ body{font-family: 'Noto Sans KR', sans-serif!important;}
 		.notice .col-3>.btn{position: absolute;top: 75%;left: 20px;width: 100px;height: 35px;}
 			.card{height: 100%;}
 			.card h5{
-				height: 3em;
+				height: 3.5em;
 				margin-bottom: 1em;
 				background:linear-gradient(to right, rgba(255,255,255,0)50%,#FFD5D0 50%);
 				background-size: 200%;
 				transition: .35s;
 				color: #666;
+				font-size: 1.2em;
 			}
 			.card:hover h5{
 				background-position: -100% 0;
@@ -168,22 +169,29 @@ body{font-family: 'Noto Sans KR', sans-serif!important;}
 	/*footer*/
 	#footer ul li{display: inline-block; padding-right: 55px;}
 	.btn_top{
-		display: block;
-		position: absolute;
-		bottom: 0;
-		right: 15px;
+		position: fixed;
 		width: 100px;
 		height: 100px;
-		border-radius: 50%;
-		box-sizing: border-box;
+		right: 50px;
+		bottom: 50px;
 		padding-top: 55px;
+		border-radius: 50%;
 		background: #FF1A00;
 		box-shadow: 5px 15px 15px rgba(0,0,0,0.15);
 		font-size: 13px;
 		font-weight: 300;
 		letter-spacing: 1.5;
 		text-align: center;
+		opacity:0;
+		transition:0.5s;
+		animation:viewTop 1s infinite alternate;
+		z-index: 9999;
 	}
+	@keyframes viewTop{
+		from{transform:translateY(0);}
+		to{transform:translateY(-20px);}
+	}
+	.btn_top.view{opacity:1;}
 	.btn_top:before,
 	.btn_top:after{
 		content: '';

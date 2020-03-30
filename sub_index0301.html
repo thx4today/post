@@ -13,8 +13,23 @@
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/slick.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>	
+	<script>
+		$(function(){
+			$(document).mousewheel(function(event,delta){
+				if(delta<0){
+					console.log("delta :",delta)
+					$(".btn_top").addClass("view");
+				}else{
+					$(".btn_top").removeClass("view");					
+				}
+			});
 
+			$(".btn_top").click(function(){
+				$("html,body").animate({scrollTop:0},300);
+			});
+		});
+	</script>
 </head>
 <body>
 	<div class="warp">
@@ -109,7 +124,7 @@
 		<!-- 본문 -->
 		<div class="subWrap container">
 			<h2 style="font-size: 34px;" class="mb-5 text-center">공지사항</h2>
-			<table class="table">
+			<table class="table mb-5">
 				<col width="10%">
 				<col >
 				<col width="10%">
@@ -122,39 +137,39 @@
 				</thead>
 				<tbody>
 				  <tr>
-				    <th scope="row">1</th>
-				    <td>Mark</td>
-				    <td>Otto</td>
+				    <th scope="row" class="text-center">1</th>
+				    <td>동서식품, '맥심 싱글오리진 에티오피아 예가체프 코체레' 한정판 출시</td>
+				    <td>관리자</td>
 				  </tr>
 				  <tr>
-				    <th scope="row">2</th>
-				    <td>Jacob</td>
-				    <td>Thornton</td>
+				    <th scope="row" class="text-center">2</th>
+				    <td>동서식품, 한정판 ‘맥심X무민 스페셜 패키지’ 출시</td>
+				    <td>관리자</td>
 				  </tr>
 				  <tr>
-				    <th scope="row">3</th>
-				    <td>Jacob</td>
-				    <td>Thornton</td>
+				    <th scope="row" class="text-center">3</th>
+				    <td>동서식품, ‘오레오 씬즈 라즈베리 무스’ 출시</td>
+				    <td>관리자</td>
 				  </tr>
 				  <tr>
-				    <th scope="row">4</th>
-				    <td>Jacob</td>
-				    <td>Thornton</td>
+				    <th scope="row" class="text-center">4</th>
+				    <td>동서식품, 신제품 시리얼바 ‘포스트 오곡코코볼바’ 출시</td>
+				    <td>관리자</td>
 				  </tr>
 				  <tr>
-				    <th scope="row">5</th>
-				    <td>Jacob</td>
-				    <td>Thornton</td>
+				    <th scope="row" class="text-center">5</th>
+				    <td>동서식품, 설 맞이 명절음식 나눔 봉사 펼쳐</td>
+				    <td>관리자</td>
 				  </tr>
 				  <tr>
-				    <th scope="row">6</th>
-				    <td>Jacob</td>
-				    <td>Thornton</td>
+				    <th scope="row" class="text-center">6</th>
+				    <td>동서, 연말 맞아 이웃돕기 성금 5억5천만원 기탁</td>
+				    <td>관리자</td>
 				  </tr>
 				  <tr>
-				    <th scope="row">7</th>
-				    <td>Jacob</td>
-				    <td>Thornton</td>
+				    <th scope="row" class="text-center">7</th>
+				    <td>동서식품, ‘제21회 맥심커피배 입신최강전’ 개최</td>
+				    <td>관리자</td>
 				  </tr>
 				</tbody>
 			</table>
@@ -179,13 +194,13 @@
 								<span class="mr-3">이메일 : sooppi_tv@sooppi.com</span>
 								<span>대표번호 : <a href="tel:123456777" class="text-light">123-456-777</a></span>
 							</address>
-							<p>COPYRIGHT 2019. BY SOOPPITV. ALL RIGHTS RESERVED. Design by SOOPPI.</p>			
-							<a href="#header" class="btn_top text-light d-none d-md-block">TOP</a>
+							<p>COPYRIGHT 2019. BY SOOPPITV. ALL RIGHTS RESERVED. Design by SOOPPI.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="btn_top">top</div>
 </body>
 </html>

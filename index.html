@@ -15,7 +15,22 @@
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/slick.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>	<script>
+		$(function(){
+			$(document).mousewheel(function(event,delta){
+				if(delta<0){
+					console.log("delta :",delta)
+					$(".btn_top").addClass("view");
+				}else{
+					$(".btn_top").removeClass("view");					
+				}
+			});
+
+			$(".btn_top").click(function(){
+				$("html,body").animate({scrollTop:0},300);
+			});
+		});
+	</script>
 	<style>
 		.slick-dots li button {
 			font-size: 0;
@@ -168,7 +183,9 @@
 						<div class="col-md-6 col-lg-4 bg-light">
 							<div class="card">
 								<div class="card-body text-left">
-									<a href="#"><h5>동서식품, '맥심 싱글오리진 에티오피아 예가체프 코체레' 한정판 출시</h5></a>
+									<a href="#">
+										<h5>동서식품, '맥심 싱글오리진 에티오피아 예가체프 코체레' 한정판 출시</h5>
+									</a>
 									<p class="card-text d-none d-md-block text-secondary">대한민국 대표 커피전문기업 동서식품(대표 이광복)은 늘어나는 홈카페족을 겨냥한 로스팅 원두제품인 '맥심 싱글 오리진 에티오피아 예가체프 코체레'를 출시한다고 밝혔다.이번 신제품은 GS25 편의점에서만 판매되는 한정판 제품이다.</p>
 									<i>2020-03-24</i>
 								</div>					
@@ -177,7 +194,9 @@
 						<div class="col-md-6 col-lg-4 bg-light">
 							<div class="card">
 								<div class="card-body list text-left">
-									<a href="#"><h5>동서식품, 한정판 ‘맥심X무민 스페셜 패키지’ 출시</h5></a>
+									<a href="#">
+										<h5>동서식품, 한정판 ‘맥심X무민 스페셜 패키지’ 출시</h5>
+									</a>
 									<p class="card-text d-none d-md-block text-secondary">대한민국 대표 커피전문기업 동서식품(대표 이광복)은 글로벌 유명 캐릭터인 무민(Moomin)과 함께한 '맥심X무민 스페셜 패키지'를 한정 판매한다고 12일 밝혔다. 맥심X무민 스페셜 패키지는 ‘카카오프렌즈’, ‘키티버니포니’에 이은 맥심 커피믹스의 세 번째 브랜드 콜라보레이션이다.</p>
 									<i>2020-03-13</i>
 								</div>					
@@ -247,6 +266,6 @@
 		</div>
 	</div>
 
-		<a href="#header" class="btn_top text-light d-none d-md-block">TOP</a>
+	<div class="btn_top">top</div>
 </body>
 </html>

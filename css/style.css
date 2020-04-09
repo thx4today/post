@@ -152,6 +152,7 @@ body{font-family: 'Noto Sans KR', sans-serif!important;}
 				transition: .35s;
 				color: #666;
 				font-size: 1.2em;
+				display: inline;
 			}
 			.card:hover h5{
 				background-position: -100% 0;

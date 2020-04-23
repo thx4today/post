@@ -13,16 +13,14 @@
 	a:link{text-decoration: none;color: #000;}
 	.clearfix:after{content: ""; display: block;clear: both;}
 	html,body{font-family: 'Baloo 2', cursive;}
-	.imgWrap{
+	#inpCity{
+		width: 60px;
+		height: 30px;
 		position: absolute;
-		z-index: 1;
-		width: 430px;
-		height: 480px;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-	.imgWrap img{width: 100%;}
-	
+		z-index: 2;
+		top: 2%;
+		right: 2%;
+		cursor: pointer;}
 	.btn{
 		width: 30px;
 		height: 30px;
@@ -39,10 +37,15 @@
 		background-color: #313340;
 		position: absolute;
 		border-radius: 25%;
+		transition: .3s;
 	}
 	.one{top: 10px;}
 	.two{top: 20px;}
 	.three{}
+	.btn:hover .one{transform: rotate(40deg);}
+	.btn:hover .two{transform: rotate(-40deg);top: 10px;}
+	.btn:hover .three{display: none;}
+
 
 	#weather_info{
 		width: 320px;height: 540px;
@@ -87,20 +90,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-	<div class="imgWrap">
-		<img src="img/iphone.png" alt="">
-	</div>
-	<select name="inpCity" id="inpCity">
-		<option value="Seoul" selected>서울</option>
-		<option value="Busan">부산</option>
-		<option value="Incheon">인천</option>
-	</select>
 	<div id="weather_info">
-	<div class="btn">
-		<span class="one"></span>
-		<span class="two"></span>
-		<span class="three"></span>
-	</div>
+		<div class="btn">
+			<span class="one"></span>
+			<span class="two"></span>
+			<span class="three"></span>
+		</div>
 		<h1>Weather</h1>
 		<p class="city">Seoul</h1>
 		<section>
@@ -112,15 +107,20 @@
 				<p class="temp_min">최소</p>
 			</div>
 		</section>
+		<select name="inpCity" id="inpCity">
+			<option value="Seoul" selected>서울</option>
+			<option value="Busan">부산</option>
+			<option value="Incheon">인천</option>
+		</select>
 	</div>
 
-	<div id="time-result"></div>
+<!-- 	<div id="time-result"></div> -->
 	<script>
 		var d = new Date();
     var currentDate = d.getFullYear() + "년 " + ( d.getMonth() + 1 ) + "월 " + d.getDate() + "일";
     var currentTime = d.getHours() + "시 " + d.getMinutes() + "분 " + d.getSeconds() + "초";
-    var result = document.getElementById("time-result");
-        result.innerHTML = "오늘 날짜는 " + currentDate + " 입니다.";
+    // var result = document.getElementById("time-result");
+    //     result.innerHTML = "오늘 날짜는 " + currentDate + " 입니다.";
 
 		loca("Seoul");
 		$("#inpCity").change(function(){
